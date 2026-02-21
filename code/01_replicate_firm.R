@@ -12,50 +12,31 @@ source(here::here("code", "config_utils.R"))
 fundq_raw <- read_parquet(file.path(raw_dir, "compustat_fundq.parquet"))
 funda_raw <- read_parquet(file.path(raw_dir, "compustat_funda.parquet"))
 
-# Get company IDs
-search_name <- function(name) {
+# Weber-Wasner (2023) firms — GVKEYs from Compustat
+weber_wasner_firms <- tribble(
+  ~gvkey,   ~conm,
+  "016486", "BOISE CASCADE CO",
+  "034443", "DOW INC",
+  "004060", "DUPONT DE NEMOURS INC",
+  "004503", "EXXON MOBIL CORP",
+  "008030", "NUCOR CORP",
+  "023978", "UNITED STATES STEEL CORP",
+  "064410", "CARMAX INC",
+  "065609", "C H ROBINSON WORLDWIDE INC",
+  "003144", "COCA-COLA CO",
+  "003835", "DEERE & CO",
+  "005071", "GENERAL MILLS INC",
+  "005073", "GENERAL MOTORS CO",
+  "005680", "HOME DEPOT INC",
+  "006829", "LOWE'S COS INC",
+  "008479", "PEPSICO INC",
+  "008762", "PROCTER & GAMBLE CO",
+  "025434", "STARBUCKS CORP",
+  "010793", "TYSON FOODS INC  -CL A"
+)
 
-  search_result <- fundq_raw %>%
-    filter(grepl(name, conm),
-           !grepl("MARION", conm),
-           !grepl("PRE.*FASB", conm),
-           !grepl("PRO.*FORMA", conm)) %>%
-    distinct(gvkey, conm)
-
-  print(search_result)
-  list(search_result$conm, search_result$gvkey)
-
-}
-
-names <- list()
-ids <- list()
-num <- 0
-
-for (n in c("BOISE CASCADE CO", "DOW INC", "DUPONT DE NEMOURS INC", "EXXON MOBIL CORP", "NUCOR CORP", "UNITED STATES STEEL CORP", "CARMAX INC", "C H ROBINSON", "COCA-COLA CO", "DEERE & CO", "GENERAL MILLS INC", "GENERAL MOTORS CO", "HOME DEPOT INC", "LOWE% COS INC", "PEPSICO INC", "PROCTER & GAMBLE CO", "STARBUCKS CO", "TYSON FOODS INC")) {
-
-  num <- num + 1
-  print(glue("{num}"))
-
-  # Convert SQL LIKE pattern (%) to regex (.*)
-  name_regex <- gsub("%", ".*", n)
-  result <- search_name(name_regex)
-  names[[num]] <- result[[1]]
-  ids[[num]] <- result[[2]]
-
-}
-
-# Confirm A.P. Moller not in data
-for (n in c("ARNOLD PETER", "A\\. P\\.", "A\\.P\\.", "A P M", "A PM", "AP M", "APM", "MOLLER", "MAERSK")) {
-
-  search_name(n)
-
-}
-
-fundq_raw %>%
-  filter(grepl("103292", gvkey)) %>%
-  distinct(gvkey, conm)
-
-ids_search <- unlist(ids)
+names <- weber_wasner_firms$conm
+ids_search <- weber_wasner_firms$gvkey
 
 data_raw <- fundq_raw %>%
   filter(gvkey %in% ids_search) %>%
@@ -87,15 +68,7 @@ make_plot <- function(firm) {
 
 }
 
-plots <- list()
-num <- 0
-
-for (f in names) {
-
-  num <- num + 1
-  plots[[num]] <- make_plot(glue("{f}"))
-
-}
+plots <- lapply(names, function(f) make_plot(f))
 
 # pdf(glue("{output_dir}/replicate_firm.pdf"), width = 11, height = 8.5)
 # print(plots)
@@ -122,8 +95,7 @@ annual_summary_data <- annual_data_raw %>%
   mutate_if(is.numeric, ~ .*100) %>%
   mutate_if(is.numeric, round, 2)
 
-names_df <- as.data.frame(unlist(names))
-colnames(names_df) <- c("Firm")
+names_df <- data.frame(Firm = names)
 
 annual_summary <- names_df %>%
   left_join(annual_summary_data, by = c("Firm" = "conm"))

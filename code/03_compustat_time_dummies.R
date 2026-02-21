@@ -16,34 +16,10 @@ output_root <- output_dir
 fundq_raw <- read_parquet(file.path(raw_dir, "compustat_fundq.parquet"))
 funda_raw <- read_parquet(file.path(raw_dir, "compustat_funda.parquet"))
 
-# Get company IDs
-search_name <- function(name) {
-
-  search_result <- fundq_raw %>%
-    filter(grepl(name, conm),
-           !grepl("MARION", conm),
-           !grepl("PRE.*FASB", conm),
-           !grepl("PRO.*FORMA", conm)) %>%
-    distinct(gvkey, conm)
-
-  print(search_result)
-  list(search_result$conm, search_result$gvkey)
-
-}
-
-names <- list()
-ids <- list()
-num <- 0
-
-for (n in c("BOISE CASCADE CO", "DOW INC", "DUPONT DE NEMOURS INC", "EXXON MOBIL CORP", "NUCOR CORP", "UNITED STATES STEEL CORP", "CARMAX INC", "C H ROBINSON", "COCA-COLA CO", "DEERE & CO", "GENERAL MILLS INC", "GENERAL MOTORS CO", "HOME DEPOT INC", "LOWE.*COS INC", "PEPSICO INC", "PROCTER & GAMBLE CO", "STARBUCKS CO", "TYSON FOODS INC")) {
-
-  num <- num + 1
-  print(glue("{num}"))
-
-  names[[num]] <- search_name(n)[[1]]
-  ids[[num]] <- search_name(n)[[2]]
-
-}
+# Weber-Wasner (2023) firms — GVKEYs from Compustat
+weber_wasner_ids <- c("016486", "034443", "004060", "004503", "008030", "023978",
+                      "064410", "065609", "003144", "003835", "005071", "005073",
+                      "005680", "006829", "008479", "008762", "025434", "010793")
 
 data_raw <- fundq_raw %>%
   select(gvkey, conm, datacqtr, datadate, indfmt, datafmt, consol, ibq, saleq, cogsq)
@@ -88,8 +64,6 @@ nrow(data_2 %>%
        filter(is.na(ibq) | is.na(saleq) | is.na(cogsq) | ibq == 0 | saleq <= 0 | cogsq <= 0,
               is.na(naicsh)))
 
-ids_search <- unlist(ids)
-
 data_3 <- data_2 %>%
   filter(!is.na(ibq),
          !is.na(saleq),
@@ -100,7 +74,7 @@ data_3 <- data_2 %>%
   filter(consol == "C") %>%
   mutate(profit_margin_c = ibq/saleq) %>%
   mutate(flag_weber_c = case_when(
-    gvkey %in% c(ids_search ) ~ 1,
+    gvkey %in% weber_wasner_ids ~ 1,
     T ~ 0
   )) %>%
   mutate(flag_c = 1)
