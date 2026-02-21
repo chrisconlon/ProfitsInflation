@@ -2,3 +2,14 @@
 # Bureau of Labor Statistics (BLS) API key
 # Register for free at: https://data.bls.gov/registrationEngine/
 bls_api_key = YOUR_BLS_API_KEY_HERE
+
+[wrds]
+# WRDS (Wharton Research Data Services) credentials
+# Institutional subscription required: https://wrds-www.wharton.upenn.edu/
+wrds_user = YOUR_WRDS_USERNAME_HERE
+wrds_password = YOUR_WRDS_PASSWORD_HERE
+
+[fred]
+# Federal Reserve Economic Data (FRED) API key
+# Register for free at: https://fred.stlouisfed.org/docs/api/api_key.html
+fred_api_key = YOUR_FRED_API_KEY_HERE

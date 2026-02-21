@@ -103,7 +103,7 @@ annual_data_raw <- funda_raw %>%
 annual_summary_data <- annual_data_raw %>%
   mutate(year_c = year(datadate)) %>%
   filter(datafmt == "STD",
-         year_c >= 2017 & year_c < 2024) %>%
+         year_c >= 2017 & year_c <= 2025) %>%
   filter(conm != "UNILEVER PLC" | year_c > 2018) %>% #drop dups with different gvkey and values for "UNILEVER PLC"
   mutate(profit_margin_c = ib/sale) %>%
   mutate(year_grouped_c = case_when(

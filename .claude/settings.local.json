@@ -3,7 +3,8 @@
     "allow": [
       "Bash(python3:*)",
       "Bash(jupyter nbconvert:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git add:*)"
     ]
   }
 }
