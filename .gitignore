@@ -134,6 +134,9 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
+# API keys and local config (never commit — use config.ini.example as template)
+config.ini
+
 # Environments
 .env
 .envrc

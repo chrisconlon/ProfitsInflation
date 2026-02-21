@@ -1,0 +1,23 @@
+# Python dependencies for ProfitsInflation replication package
+# Install with: pip install -r requirements.txt
+# Developed with Python 3.10+
+
+# Data retrieval
+requests
+
+# Data processing
+pandas
+numpy
+openpyxl          # required by pandas for reading .xlsx files (BEA data)
+
+# Visualization
+matplotlib
+seaborn
+dataframe_image   # optional: used for exporting styled tables as images
+
+# BLS API response formatting
+prettytable
+
+# Jupyter environment
+jupyterlab
+ipykernel

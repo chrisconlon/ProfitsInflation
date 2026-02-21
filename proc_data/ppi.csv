@@ -1,8 +1,11 @@
 series_id,year,period,value,footnotes
-WPUFD4,2025,M09,149.638,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD4,2025,M08,149.526,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD4,2025,M07,149.885,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD4,2025,M06,148.801,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD4,2025,M12,150.552,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD4,2025,M11,150.332,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD4,2025,M10,150.433,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD4,2025,M09,150.109,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD4,2025,M08,149.466,
+WPUFD4,2025,M07,149.898,
+WPUFD4,2025,M06,148.838,
 WPUFD4,2025,M05,148.427,
 WPUFD4,2025,M04,148.009,
 WPUFD4,2025,M03,148.319,
@@ -176,10 +179,13 @@ WPUFD4,2011,M04,105.9,
 WPUFD4,2011,M03,105.2,
 WPUFD4,2011,M02,104.2,
 WPUFD4,2011,M01,103.4,
-WPUFD41,2025,M09,148.101,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD41,2025,M08,147.575,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD41,2025,M07,147.654,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD41,2025,M06,146.749,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD41,2025,M12,146.860,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD41,2025,M11,147.884,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD41,2025,M10,147.130,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD41,2025,M09,147.927,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD41,2025,M08,147.594,
+WPUFD41,2025,M07,147.662,
+WPUFD41,2025,M06,146.754,
 WPUFD41,2025,M05,145.883,
 WPUFD41,2025,M04,145.664,
 WPUFD41,2025,M03,145.494,
@@ -353,10 +359,13 @@ WPUFD41,2011,M04,110.5,
 WPUFD41,2011,M03,109.0,
 WPUFD41,2011,M02,107.6,
 WPUFD41,2011,M01,106.2,
-WPUFD42,2025,M09,149.273,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD42,2025,M08,149.346,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD42,2025,M07,149.837,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD42,2025,M06,148.672,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD42,2025,M12,151.086,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD42,2025,M11,150.308,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD42,2025,M10,150.795,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD42,2025,M09,150.053,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD42,2025,M08,149.253,
+WPUFD42,2025,M07,149.853,
+WPUFD42,2025,M06,148.725,
 WPUFD42,2025,M05,148.514,
 WPUFD42,2025,M04,148.002,
 WPUFD42,2025,M03,148.514,
@@ -530,10 +539,13 @@ WPUFD42,2011,M04,103.3,
 WPUFD42,2011,M03,103.1,
 WPUFD42,2011,M02,102.3,
 WPUFD42,2011,M01,101.9,
-WPUFD49104,2025,M09,147.950,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD49104,2025,M08,147.975,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD49104,2025,M07,148.266,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD49104,2025,M06,147.274,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD49104,2025,M12,149.751,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD49104,2025,M11,149.032,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD49104,2025,M10,149.348,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD49104,2025,M09,148.550,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD49104,2025,M08,147.912,
+WPUFD49104,2025,M07,148.282,
+WPUFD49104,2025,M06,147.312,
 WPUFD49104,2025,M05,147.094,
 WPUFD49104,2025,M04,146.633,
 WPUFD49104,2025,M03,146.952,
@@ -707,10 +719,13 @@ WPUFD49104,2011,M04,102.5,
 WPUFD49104,2011,M03,102.2,
 WPUFD49104,2011,M02,101.6,
 WPUFD49104,2011,M01,101.2,
-WPUID61,2025,M09,263.663,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUID61,2025,M08,263.170,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUID61,2025,M07,262.844,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUID61,2025,M06,260.631,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUID61,2025,M12,261.013,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUID61,2025,M11,262.269,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUID61,2025,M10,261.926,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUID61,2025,M09,263.426,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUID61,2025,M08,263.093,
+WPUID61,2025,M07,262.810,
+WPUID61,2025,M06,260.626,
 WPUID61,2025,M05,259.363,
 WPUID61,2025,M04,258.501,
 WPUID61,2025,M03,257.722,
@@ -884,10 +899,13 @@ WPUID61,2011,M04,201.0,
 WPUID61,2011,M03,197.6,
 WPUID61,2011,M02,193.7,
 WPUID61,2011,M01,190.6,
-WPUID62,2025,M09,243.543,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUID62,2025,M08,245.916,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUID62,2025,M07,253.826,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUID62,2025,M06,252.894,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUID62,2025,M12,248.782,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUID62,2025,M11,242.491,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUID62,2025,M10,240.259,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUID62,2025,M09,243.491,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUID62,2025,M08,246.106,
+WPUID62,2025,M07,253.801,
+WPUID62,2025,M06,252.974,
 WPUID62,2025,M05,246.865,
 WPUID62,2025,M04,250.600,
 WPUID62,2025,M03,258.325,
@@ -1061,10 +1079,13 @@ WPUID62,2011,M04,261.3,
 WPUID62,2011,M03,248.2,
 WPUID62,2011,M02,242.8,
 WPUID62,2011,M01,235.9,
-WPU00000000,2025,M09,262.344,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPU00000000,2025,M08,262.104,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPU00000000,2025,M07,262.363,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPU00000000,2025,M06,260.482,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU00000000,2025,M12,260.686,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU00000000,2025,M11,261.358,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU00000000,2025,M10,260.724,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU00000000,2025,M09,262.094,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU00000000,2025,M08,262.110,
+WPU00000000,2025,M07,262.358,
+WPU00000000,2025,M06,260.491,
 WPU00000000,2025,M05,258.678,
 WPU00000000,2025,M04,258.392,
 WPU00000000,2025,M03,258.525,
@@ -1598,10 +1619,13 @@ CUUR0000SA0L1E,2011,M04,224.118,
 CUUR0000SA0L1E,2011,M03,223.690,
 CUUR0000SA0L1E,2011,M02,223.011,
 CUUR0000SA0L1E,2011,M01,222.177,
-WPU57,2025,M09,170.876,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPU57,2025,M08,170.726,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPU57,2025,M07,174.970,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPU57,2025,M06,171.394,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU57,2025,M12,175.151,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU57,2025,M11,172.863,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU57,2025,M10,171.409,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU57,2025,M09,173.183,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU57,2025,M08,170.003,
+WPU57,2025,M07,175.099,
+WPU57,2025,M06,171.569,
 WPU57,2025,M05,171.314,
 WPU57,2025,M04,169.708,
 WPU57,2025,M03,173.478,
@@ -1775,10 +1799,13 @@ WPU57,2011,M04,102.3,
 WPU57,2011,M03,101.8,
 WPU57,2011,M02,100.5,
 WPU57,2011,M01,99.9,
-WPU58,2025,M09,155.074,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPU58,2025,M08,154.284,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPU58,2025,M07,154.519,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPU58,2025,M06,156.263,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU58,2025,M12,154.790,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU58,2025,M11,153.142,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU58,2025,M10,157.802,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU58,2025,M09,156.771,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU58,2025,M08,154.477,
+WPU58,2025,M07,154.564,
+WPU58,2025,M06,156.362,
 WPU58,2025,M05,157.195,
 WPU58,2025,M04,155.930,
 WPU58,2025,M03,152.690,
@@ -1952,10 +1979,13 @@ WPU58,2011,M04,105.0,
 WPU58,2011,M03,105.8,
 WPU58,2011,M02,103.5,
 WPU58,2011,M01,102.2,
-WPSFD423,2025,M09,158.191,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPSFD423,2025,M08,158.544,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPSFD423,2025,M07,161.279,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPSFD423,2025,M06,159.584,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPSFD423,2025,M12,160.817,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPSFD423,2025,M11,158.074,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPSFD423,2025,M10,159.011,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPSFD423,2025,M09,160.338,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPSFD423,2025,M08,158.034,
+WPSFD423,2025,M07,161.386,
+WPSFD423,2025,M06,159.720,
 WPSFD423,2025,M05,159.942,
 WPSFD423,2025,M04,157.674,
 WPSFD423,2025,M03,158.053,
@@ -2129,10 +2159,13 @@ WPSFD423,2011,M04,103.7,
 WPSFD423,2011,M03,103.7,
 WPSFD423,2011,M02,102.3,
 WPSFD423,2011,M01,101.9,
-WPUFD411,2025,M09,160.104,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD411,2025,M08,158.538,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD411,2025,M07,159.006,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPUFD411,2025,M06,157.401,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD411,2025,M12,157.999,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD411,2025,M11,159.857,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD411,2025,M10,158.442,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD411,2025,M09,159.574,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPUFD411,2025,M08,158.325,
+WPUFD411,2025,M07,158.942,
+WPUFD411,2025,M06,157.386,
 WPUFD411,2025,M05,156.616,
 WPUFD411,2025,M04,156.271,
 WPUFD411,2025,M03,157.304,
@@ -2306,10 +2339,13 @@ WPUFD411,2011,M04,112.4,
 WPUFD411,2011,M03,111.5,
 WPUFD411,2011,M02,112.2,
 WPUFD411,2011,M01,108.2,
-WPU5811,2025,M09,189.487,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPU5811,2025,M08,190.123,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPU5811,2025,M07,192.288,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-WPU5811,2025,M06,191.304,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU5811,2025,M12,187.750,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU5811,2025,M11,183.234,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU5811,2025,M10,188.450,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU5811,2025,M09,188.872,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+WPU5811,2025,M08,190.733,
+WPU5811,2025,M07,192.122,
+WPU5811,2025,M06,190.982,
 WPU5811,2025,M05,192.029,
 WPU5811,2025,M04,188.140,
 WPU5811,2025,M03,183.794,
@@ -2483,10 +2519,13 @@ WPU5811,2011,M04,106.8,
 WPU5811,2011,M03,107.2,
 WPU5811,2011,M02,107.1,
 WPU5811,2011,M01,104.8,
-PCU445110445110,2025,M09,288.171,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-PCU445110445110,2025,M08,283.779,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-PCU445110445110,2025,M07,285.084,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
-PCU445110445110,2025,M06,287.765,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+PCU445110445110,2025,M12,288.331,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+PCU445110445110,2025,M11,284.477,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+PCU445110445110,2025,M10,283.965,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+PCU445110445110,2025,M09,288.804,Preliminary. All indexes are subject to monthly revisions up to four months after original publication.
+PCU445110445110,2025,M08,285.034,
+PCU445110445110,2025,M07,284.672,
+PCU445110445110,2025,M06,287.260,
 PCU445110445110,2025,M05,289.379,
 PCU445110445110,2025,M04,291.601,
 PCU445110445110,2025,M03,285.200,

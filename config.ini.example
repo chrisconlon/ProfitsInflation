@@ -1,0 +1,4 @@
+[api_keys]
+# Bureau of Labor Statistics (BLS) API key
+# Register for free at: https://data.bls.gov/registrationEngine/
+bls_api_key = YOUR_BLS_API_KEY_HERE
