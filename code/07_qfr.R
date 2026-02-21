@@ -90,7 +90,7 @@ ggplot(replicate_data, aes(x = qtr_c, y = ma_c, color = industry_c)) +
   geom_line() +
   scale_x_yearqtr(n = 13, expand = c(0, 0), format = "%YQ%q") +
   scale_y_continuous(labels = scales::percent) +
-  labs(title = "Replicate QFR plot", subtitle = "(net sales - other operating costs)/net sales\nFour quarter moving average") +
+  labs(title = "Replicate QFR plot", subtitle = "(net sales - other operating costs)/net sales\nFour quarter moving average", caption = "Source: Census QFR, calculations by cconlon@stern.nyu.edu") +
   xlab(label = "") +
   ylab(label = "") +
   scale_color_manual(values = c("blue", "orange")) +
@@ -130,7 +130,7 @@ for (l in c("Sector", "Sector (cont'd)", "Industry")) {
     geom_line() +
     scale_x_yearqtr(n = 52, expand = c(0, 0), format = "%YQ%q") +
     scale_y_continuous(labels = scales::comma) +
-    labs(title = "QFR data - profits", subtitle = glue("{l}")) +
+    labs(title = "QFR data - profits", subtitle = glue("{l}"), caption = "Source: Census QFR, calculations by cconlon@stern.nyu.edu") +
     xlab(label = "") +
     ylab(label = "Million USD") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5), legend.position = "bottom", legend.title = element_blank())
@@ -143,7 +143,7 @@ for (l in c("Sector", "Sector (cont'd)", "Industry")) {
     geom_line() +
     scale_x_yearqtr(n = 52, expand = c(0, 0), format = "%YQ%q") +
     scale_y_continuous(labels = scales::percent) +
-    labs(title = "QFR data - profit margins", subtitle = glue("{l}")) +
+    labs(title = "QFR data - profit margins", subtitle = glue("{l}"), caption = "Source: Census QFR, calculations by cconlon@stern.nyu.edu") +
     xlab(label = "") +
     ylab(label = "") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5), legend.position = "bottom", legend.title = element_blank())
@@ -156,7 +156,7 @@ for (l in c("Sector", "Sector (cont'd)", "Industry")) {
     geom_line() +
     scale_x_yearqtr(n = 52, expand = c(0, 0), format = "%YQ%q") +
     scale_y_continuous(labels = scales::percent) +
-    labs(title = "QFR data - profit growth", subtitle = glue("{l}"), caption = "Profit growth = (profit,t - profit,2017Q1)/abs(profit,2017Q1)") +
+    labs(title = "QFR data - profit growth", subtitle = glue("{l}"), caption = "Profit growth = (profit,t - profit,2017Q1)/abs(profit,2017Q1)\nSource: Census QFR, calculations by cconlon@stern.nyu.edu") +
     xlab(label = "") +
     ylab(label = "") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5), legend.position = "bottom", legend.title = element_blank())

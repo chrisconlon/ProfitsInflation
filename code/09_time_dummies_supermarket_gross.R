@@ -195,7 +195,7 @@ make_plot <- function(df) {
   ggplot(data = df, aes(x = qtr_c, y = Estimate, color = Sample, linetype = Wgt)) +
     geom_line() +
     scale_x_yearqtr(n = 29, expand = c(0, 0), format = "%YQ%q") +
-    labs(title = "Time dummies from regression of profit margin (gross) on firm and year-qtr dummies", caption = glue("Note: \n Data from Compustat. 2017Q1 onwards. {n_firms} firms. Restricted to positive sales and COGS and non-zero profits. Trimmed to middle 99% margins. \n Supermarkets are NAICS 445110 (Supermarkets and Other Grocery (except Convenience) Stores). Consumer products are NAICS 322 (Paper Manufacturing) and 3256 (Soap, Cleaning Compound, and \n Toilet Preparation Manufacturing). Food is NAICS 311 (Food Manufacturing) and 31211 (Soft Drink and Ice Manufacturing).")) +
+    labs(title = "Time dummies from regression of profit margin (gross) on firm and year-qtr dummies", caption = glue("Note: \n Data from Compustat. 2017Q1 onwards. {n_firms} firms. Restricted to positive sales and COGS and non-zero profits. Trimmed to middle 99% margins. \n Supermarkets are NAICS 445110 (Supermarkets and Other Grocery (except Convenience) Stores). Consumer products are NAICS 322 (Paper Manufacturing) and 3256 (Soap, Cleaning Compound, and \n Toilet Preparation Manufacturing). Food is NAICS 311 (Food Manufacturing) and 31211 (Soft Drink and Ice Manufacturing). \n Source: Compustat, calculations by cconlon@stern.nyu.edu")) +
     xlab(label = "") +
     ylab(label = "") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5), legend.position = "bottom", legend.title = element_blank(), plot.caption = element_text(hjust = 0))

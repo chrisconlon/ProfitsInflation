@@ -47,7 +47,7 @@ data_3 <- data_2 %>%
   filter(qtr_c < "2025 Q4") %>%
   mutate(cat_clean_c = gsub("^Real Personal Consumption Expenditures$", "Total", gsub("Real Personal Consumption Expenditures: |Real personal consumption expenditures: ", "", cat_c)))
 
-fn <- "Source: FRED. Seasonally adjusted."
+fn <- "Source: FRED. Seasonally adjusted. Calculations by cconlon@stern.nyu.edu"
 
 ggplot(data_3, aes(x = qtr_c, y = index_c, color = cat_clean_c)) +
   geom_line(linewidth = 1) +

@@ -73,7 +73,7 @@ make_plot <- function(firm) {
     geom_point(aes(y = profit_margin_c*scale_factor, color = "Profit margin (gross)")) +
     scale_x_yearqtr(n = 29, expand = c(0, 0), format = "%YQ%q") +
     scale_y_continuous(labels = scales::comma, sec.axis = sec_axis(~ ./scale_factor, labels = scales::percent, name = "Profit margin (gross)")) +
-    labs(title = glue("{firm}")) +
+    labs(title = glue("{firm}"), caption = "Source: Compustat, calculations by cconlon@stern.nyu.edu") +
     xlab(label = "") +
     ylab(label = "Profit (gross, million USD)") +
     scale_fill_manual(name = "", values = c("Profit (gross)" = "navyblue")) +
@@ -125,5 +125,5 @@ annual_summary <- names_df %>%
   left_join(annual_summary_data, by = c("Firm" = "conm"))
 
 pdf(glue("{output_root}/supermarket_goods_annual_table_gross.pdf"), width = 11, height = 8.5)
-grid.arrange(top = textGrob("Annual profit margin (gross, %)", gp = gpar(fontsize = 15), vjust = 4), tableGrob(annual_summary))
+grid.arrange(top = textGrob("Annual profit margin (gross, %)", gp = gpar(fontsize = 15), vjust = 4), tableGrob(annual_summary), bottom = textGrob("Source: Compustat, calculations by cconlon@stern.nyu.edu", gp = gpar(fontsize = 10), hjust = 1, x = 1))
 dev.off()

@@ -94,7 +94,7 @@ make_plot_unit <- function(df, subtitlee) {
   ggplot(df, aes_string(x = "qtr", y = "value", color = "var_clean")) +
     geom_line() +
     scale_x_yearqtr(n = 29, expand = c(0, 0), format = "%YQ%q") +
-    labs(title = "Price, costs, profits per unit real gross value added", subtitle = glue("Nonfinancial business\n{subtitlee}"), caption = "Source: BEA") +
+    labs(title = "Price, costs, profits per unit real gross value added", subtitle = glue("Nonfinancial business\n{subtitlee}"), caption = "Source: BEA, calculations by cconlon@stern.nyu.edu") +
     xlab(label = "") +
     ylab(label = "") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5), legend.position = "bottom", legend.title = element_blank())
@@ -129,7 +129,7 @@ make_plot_ind <- function(df, var, titlee, subtitlee) {
     geom_line() +
     scale_x_yearqtr(n = 29, expand = c(0, 0), format = "%YQ%q") +
     scale_y_continuous(label = scales::comma) +
-    labs(title = glue("{titlee}"), subtitle = glue("{subtitlee}"), caption = "Source: BEA") +
+    labs(title = glue("{titlee}"), subtitle = glue("{subtitlee}"), caption = "Source: BEA, calculations by cconlon@stern.nyu.edu") +
     xlab(label = "") +
     ylab(label = "Billion USD") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5), legend.position = "bottom", legend.title = element_blank())

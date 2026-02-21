@@ -59,7 +59,7 @@ make_plot <- function(firm) {
     geom_line(aes(y = profit_margin_c*scale_factor, color = "Profit margin")) +
     scale_x_yearqtr(n = 29, expand = c(0, 0), format = "%YQ%q") +
     scale_y_continuous(labels = scales::comma, sec.axis = sec_axis(~ ./scale_factor, labels = scales::percent, name = "Profit margin")) +
-    labs(title = glue("{firm}")) +
+    labs(title = glue("{firm}"), caption = "Source: Compustat, calculations by cconlon@stern.nyu.edu") +
     xlab(label = "") +
     ylab(label = "Profit (million USD)") +
     scale_fill_manual(name = "", values = c("Profit" = "navyblue")) +
@@ -102,5 +102,5 @@ annual_summary <- names_df %>%
 
 ## List of firms in the Weber Wasner (2023) paper.
 pdf(glue("{output_dir}/annual_margins.pdf"), width = 11, height = 8.5)
-grid.arrange(top = textGrob("Annual profit margin (%)", gp = gpar(fontsize = 15), vjust = 10), tableGrob(annual_summary))
+grid.arrange(top = textGrob("Annual profit margin (%)", gp = gpar(fontsize = 15), vjust = 10), tableGrob(annual_summary), bottom = textGrob("Source: Compustat, calculations by cconlon@stern.nyu.edu", gp = gpar(fontsize = 10), hjust = 1, x = 1))
 dev.off()
