@@ -53,7 +53,7 @@ ProfitsInflation/
 ### 1. Clone the repository
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/chrisconlon/ProfitsInflation.git
 cd ProfitsInflation
 ```
 
