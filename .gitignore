@@ -137,6 +137,10 @@ celerybeat.pid
 # API keys and local config (never commit — use config.ini.example as template)
 config.ini
 
+# Downloaded Compustat data (large; regenerate via code/00_download_wrds.R)
+raw_data/compustat_fundq.parquet
+raw_data/compustat_funda.parquet
+
 # Environments
 .env
 .envrc
@@ -208,3 +212,4 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+.Rproj.user
