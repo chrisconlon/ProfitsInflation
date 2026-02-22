@@ -5,7 +5,14 @@
       "Bash(jupyter nbconvert:*)",
       "Bash(git commit:*)",
       "Bash(git add:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(Rscript:*)",
+      "Bash(ls:*)",
+      "Bash(git log:*)",
+      "Bash(uvx:*)",
+      "Bash(uv:*)",
+      "Bash(git status:*)",
+      "Bash(git check-ignore:*)"
     ]
   }
 }
