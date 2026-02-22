@@ -86,10 +86,36 @@ profit_qtr_dates <- profit_qtr_dates[profit_keep]
 
 colnames(profit_ind_raw) <- c("industry", as.character(profit_qtr_dates))
 
-go_ind_raw <- read.xlsx(glue("{raw_root}/gross_output_by_industry.xlsx"), sheet = "Table", rows = 8:108, colNames = FALSE) %>%
-  select(-c(X1))
+# Read Gross Output by Industry (TGO105-Q) from BEA GDP-by-Industry file
+go_file <- file.path(raw_root, "GrossOutput.xlsx")
+go_all <- read.xlsx(go_file, sheet = "TGO105-Q", startRow = 8, colNames = FALSE)
 
-colnames(go_ind_raw) <- c("industry", as.character(seq(as.Date("2018-01-01"), as.Date("2024-01-01"), by = "quarter")))
+go_header_vals <- as.character(unlist(go_all[1, -(1:3)]))
+go_data <- go_all[-1, ]
+
+# Lines 1-97 = all industries; exclude addenda lines 98-100 (sparse data)
+go_ind_raw <- go_data %>%
+  filter(as.numeric(X1) %in% 1:97) %>%
+  select(-c(X1, X3))
+
+# Parse quarter labels and build dynamic date columns
+go_qtr_labels <- go_header_vals[!is.na(go_header_vals)]
+go_qtr_dates <- as.Date(as.yearqtr(go_qtr_labels, format = "%YQ%q"))
+
+go_ind_raw <- go_ind_raw %>%
+  mutate(across(-1, as.numeric))
+
+# Drop unreleased quarters
+go_valid <- colSums(is.na(go_ind_raw[, -1])) == 0
+go_ind_raw <- go_ind_raw[, c(TRUE, go_valid)]
+go_qtr_dates <- go_qtr_dates[go_valid]
+
+# Keep 2017Q1 onward
+go_keep <- which(go_qtr_dates >= as.Date("2017-01-01"))
+go_ind_raw <- go_ind_raw[, c(1, go_keep + 1)]
+go_qtr_dates <- go_qtr_dates[go_keep]
+
+colnames(go_ind_raw) <- c("industry", as.character(go_qtr_dates))
 
 price_cost_profit_1 <- price_cost_profit_raw %>%
   pivot_longer(cols = !var, names_to = "qtr_temp", values_to = "value") %>%

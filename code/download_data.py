@@ -8,7 +8,7 @@ RAW_DIR.mkdir(exist_ok=True)
 DOWNLOADS = {
     "Section1All_xls.xlsx": "https://apps.bea.gov/national/Release/XLS/Survey/Section1All_xls.xlsx",
     "Section6All_xls.xlsx": "https://apps.bea.gov/national/Release/XLS/Survey/Section6All_xls.xlsx",
-    # Future: add gross_output_by_industry URL here
+    "GrossOutput.xlsx": "https://apps.bea.gov/industry/Release/XLS/GDPxInd/GrossOutput.xlsx",
 }
 
 for filename, url in DOWNLOADS.items():
