@@ -12,7 +12,8 @@
       "Bash(uvx:*)",
       "Bash(uv:*)",
       "Bash(git status:*)",
-      "Bash(git check-ignore:*)"
+      "Bash(git check-ignore:*)",
+      "WebFetch(domain:apps.bea.gov)"
     ]
   }
 }
