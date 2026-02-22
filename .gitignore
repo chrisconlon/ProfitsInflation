@@ -141,6 +141,10 @@ config.ini
 raw_data/compustat_fundq.parquet
 raw_data/compustat_funda.parquet
 
+# Downloaded BEA data (large; regenerate via code/download_data.py)
+raw_data/Section1All_xls.xlsx
+raw_data/Section6All_xls.xlsx
+
 # Environments
 .env
 .envrc

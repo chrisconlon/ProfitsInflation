@@ -20,15 +20,71 @@ ggsave_c <- function(filepath, plots_list) {
 }
 
 # Clean data -------------------------------------------------------------------
-price_cost_profit_raw <- read.xlsx(glue("{raw_root}/price_costs_profit_per_unit.xlsx"), sheet = "Table", rows = 8:16, colNames = FALSE) %>%
-  select(-c(X1))
 
-colnames(price_cost_profit_raw) <- c("var", as.character(seq(as.Date("2017-01-01"), as.Date("2024-01-01"), by = "quarter")))
+# Read NIPA Table 1.15 (price, costs, profit per unit) from BEA master file
+bea_file <- file.path(raw_root, "Section1All_xls.xlsx")
+bea_all <- read.xlsx(bea_file, sheet = "T11500-Q", startRow = 8, colNames = FALSE)
 
-profit_ind_raw <- read.xlsx(glue("{raw_root}/corporate_profits_by_industry.xlsx"), sheet = "Table", rows = 16:40, colNames = FALSE) %>%
-  select(-c(X1))
+# Row 1 is the header row (quarter labels), rest is data
+bea_header_vals <- as.character(unlist(bea_all[1, -(1:3)]))
+bea_data <- bea_all[-1, ]
 
-colnames(profit_ind_raw) <- c("industry", as.character(seq(as.Date("2017-01-01"), as.Date("2024-01-01"), by = "quarter")))
+# Filter to relevant BEA lines and drop Line number (X1) and series code (X3)
+# Lines: 1=Price, 2=Labor cost, 3=Nonlabor cost, 7=Profits w/IVA, 8=Taxes, 9=AfterTax
+price_cost_profit_raw <- bea_data %>%
+  filter(as.numeric(X1) %in% 1:9) %>%
+  select(-c(X1, X3))
+
+# Parse quarter labels from header and convert to dates
+qtr_labels <- bea_header_vals[!is.na(bea_header_vals)]
+qtr_dates <- as.Date(as.yearqtr(qtr_labels, format = "%YQ%q"))
+
+# Convert data columns to numeric; unreleased quarters ("....") become NA
+price_cost_profit_raw <- price_cost_profit_raw %>%
+  mutate(across(-1, as.numeric))
+
+# Drop any trailing quarters with NA values (unreleased BEA data)
+valid_qtrs <- colSums(is.na(price_cost_profit_raw[, -1])) == 0
+price_cost_profit_raw <- price_cost_profit_raw[, c(TRUE, valid_qtrs)]
+qtr_dates <- qtr_dates[valid_qtrs]
+
+# Keep only 2017Q1 onward (matching other datasets) but expand automatically
+keep_idx <- which(qtr_dates >= as.Date("2017-01-01"))
+price_cost_profit_raw <- price_cost_profit_raw[, c(1, keep_idx + 1)]
+qtr_dates <- qtr_dates[keep_idx]
+
+colnames(price_cost_profit_raw) <- c("var", as.character(qtr_dates))
+
+# Read NIPA Table 6.16D (corporate profits by industry) from BEA master file
+bea6_file <- file.path(raw_root, "Section6All_xls.xlsx")
+bea6_all <- read.xlsx(bea6_file, sheet = "T61600D-Q", startRow = 8, colNames = FALSE)
+
+bea6_header_vals <- as.character(unlist(bea6_all[1, -(1:3)]))
+bea6_data <- bea6_all[-1, ]
+
+# Lines 9-33 = "Corporate profits with IVA" section (matching old rows 16:40)
+profit_ind_raw <- bea6_data %>%
+  filter(as.numeric(X1) %in% 9:33) %>%
+  select(-c(X1, X3))
+
+# Parse quarter labels and build dynamic date columns
+profit_qtr_labels <- bea6_header_vals[!is.na(bea6_header_vals)]
+profit_qtr_dates <- as.Date(as.yearqtr(profit_qtr_labels, format = "%YQ%q"))
+
+profit_ind_raw <- profit_ind_raw %>%
+  mutate(across(-1, as.numeric))
+
+# Drop unreleased quarters
+profit_valid <- colSums(is.na(profit_ind_raw[, -1])) == 0
+profit_ind_raw <- profit_ind_raw[, c(TRUE, profit_valid)]
+profit_qtr_dates <- profit_qtr_dates[profit_valid]
+
+# Keep 2017Q1 onward
+profit_keep <- which(profit_qtr_dates >= as.Date("2017-01-01"))
+profit_ind_raw <- profit_ind_raw[, c(1, profit_keep + 1)]
+profit_qtr_dates <- profit_qtr_dates[profit_keep]
+
+colnames(profit_ind_raw) <- c("industry", as.character(profit_qtr_dates))
 
 go_ind_raw <- read.xlsx(glue("{raw_root}/gross_output_by_industry.xlsx"), sheet = "Table", rows = 8:108, colNames = FALSE) %>%
   select(-c(X1))
@@ -40,7 +96,7 @@ price_cost_profit_1 <- price_cost_profit_raw %>%
   mutate(qtr = as.yearqtr(as.Date(qtr_temp))) %>%
   select(-c(qtr_temp)) %>%
   mutate(var_clean = case_when(
-    grepl("Price per unit of real gross value added of nonfinancial corporate business1", var) ~ "Price",
+    grepl("Price per unit of real gross value added of nonfinancial corporate business", var) ~ "Price",
     grepl("Compensation of employees", var) ~ "Cost - labor",
     grepl("Consumption of fixed capital", var) ~ "Cost - capital",
     grepl("Taxes on production and imports less subsidies plus business current transfer payments", var) ~ "Cost - net taxes",
@@ -56,7 +112,7 @@ process_ind_data <- function(data, var) {
     pivot_longer(cols = !industry, names_to = "qtr_temp", values_to = var) %>%
     mutate(qtr = as.yearqtr(as.Date(qtr_temp))) %>%
     select(-c(qtr_temp)) %>%
-    mutate(industry_clean = gsub("[0-9]", "", gsub("^ +", "", industry)))
+    mutate(industry_clean = gsub("[0-9]", "", gsub("^ +", "", gsub("\\\\[0-9]+\\\\", "", industry))))
     
 }
 
@@ -73,7 +129,7 @@ go_ind_1 <- process_ind_data(data = go_ind_raw, var = "go") %>%
   mutate_at(vars(go), as.numeric)
 
 profit_manuf_subind <- profit_ind_1 %>%
-  filter(grepl("                ", industry)) %>%
+  filter(grepl("        ", industry)) %>%
   distinct(industry_clean, qtr, profit)
 
 go_manuf_subind <- go_ind_1 %>%
@@ -91,7 +147,7 @@ other_cost_profit <- price_cost_profit_1 %>%
 
 make_plot_unit <- function(df, subtitlee) {
   
-  ggplot(df, aes_string(x = "qtr", y = "value", color = "var_clean")) +
+  ggplot(df, aes(x = qtr, y = value, color = var_clean)) +
     geom_line() +
     scale_x_yearqtr(n = 29, expand = c(0, 0), format = "%YQ%q") +
     labs(title = "Price, costs, profits per unit real gross value added", subtitle = glue("Nonfinancial business\n{subtitlee}"), caption = "Source: BEA, calculations by cconlon@stern.nyu.edu") +
@@ -125,7 +181,7 @@ data[["go"]][["manuf_subind"]] <- go_manuf_subind
 
 make_plot_ind <- function(df, var, titlee, subtitlee) {
   
-  ggplot(df, aes_string(x = "qtr", y = glue("{var}"), color = "industry_clean")) +
+  ggplot(df, aes(x = qtr, y = .data[[var]], color = industry_clean)) +
     geom_line() +
     scale_x_yearqtr(n = 29, expand = c(0, 0), format = "%YQ%q") +
     scale_y_continuous(label = scales::comma) +

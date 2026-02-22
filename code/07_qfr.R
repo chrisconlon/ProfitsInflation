@@ -4,7 +4,7 @@ library(zoo)
 library(ggplot2)
 library(gridExtra)
 library(grid)
-library(xlsx)
+library(openxlsx)
 library(here)
 source(here::here("code", "config_utils.R"))
 

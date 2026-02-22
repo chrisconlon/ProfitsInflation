@@ -8,7 +8,6 @@ library(gridExtra)
 library(grid)
 library(data.table)
 library(lfe)
-library(xlsx)
 library(openxlsx)
 
 library(here)
@@ -24,7 +23,7 @@ wrds <- dbConnect(RPostgres::Postgres(),
                   password = wrds_password)
 
 data_import <- read.csv(file.path(proc_dir, "05_compustat_build.csv"), colClasses = "character")
-naics_xwalk_import <- xlsx::read.xlsx(file.path(raw_dir, "2-6 digit_2017_Codes.xlsx"), sheetName = "tbl_2017_title_description_coun")
+naics_xwalk_import <- openxlsx::read.xlsx(file.path(raw_dir, "2-6 digit_2017_Codes.xlsx"), sheet = "tbl_2017_title_description_coun")
 colnames(naics_xwalk_import) <- c("no", "naics_code_import", "naics_title", "extra1", "extra2")
 
 data_1 <- data_import %>%
