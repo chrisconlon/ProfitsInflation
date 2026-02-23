@@ -17,10 +17,17 @@ import_data <- function(start, stop) {
   
 }
 
-data_raw <- import_data(276, -1)
+# Fixed sections (these don't grow over time)
 naics_xwalk_raw <- import_data(1, 52)
 var_xwalk_raw <- import_data(57, 46)
-time_xwalk_raw <- import_data(162, 100)
+
+# Dynamic sections: find header lines to determine boundaries
+qfr_lines <- readLines(glue("{raw_root}/QFR-mf.csv"))
+time_header <- grep("^per_idx,per_name", qfr_lines)
+notes_line <- grep("^NOTES$", qfr_lines)
+data_header <- grep("^per_idx,cat_idx", qfr_lines)
+time_xwalk_raw <- import_data(time_header - 1, notes_line - time_header - 3)
+data_raw <- import_data(data_header - 1, -1)
 
 data_1 <- data_raw %>%
   filter(et_idx == 0) %>%
