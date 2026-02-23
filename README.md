@@ -166,3 +166,5 @@ source("code/01_replicate_firm.R")
 - **BEA NIPA data**: Notebook 2 selects the 26 most recent quarters; this shifts as BEA releases new quarters. Script 02 automatically expands its date range as new quarters are published.
 - **BEA downloads**: Re-run `python code/download_data.py` after deleting files in `raw_data/` to pick up the latest BEA release with revised historical values.
 - **Script ordering**: Run `05_time_dummies_supermarket.R` before `06_naics_list.R`.
+
+Thanks to Rebecca Goldgof for excellent research assistance (and most of the R code).
