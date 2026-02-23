@@ -4,6 +4,8 @@
 
 # Data retrieval
 requests
+wrds              # WRDS/Compustat download (requires institutional credentials)
+pyarrow           # parquet file support (used by download_data.py and wrds)
 
 # Data processing
 pandas

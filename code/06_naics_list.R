@@ -1,6 +1,4 @@
 library(tidyverse)
-library(RPostgres)
-library(DBI)
 library(glue)
 library(zoo)
 library(ggplot2)
@@ -14,13 +12,6 @@ library(here)
 source(here::here("code", "config_utils.R"))
 
 output_root <- output_dir
-
-wrds <- dbConnect(RPostgres::Postgres(),
-                  dbname = "wrds",
-                  host = "wrds-pgdata.wharton.upenn.edu",
-                  port = 9737,
-                  user = wrds_user,
-                  password = wrds_password)
 
 data_import <- read.csv(file.path(proc_dir, "05_compustat_build.csv"), colClasses = "character")
 naics_xwalk_import <- openxlsx::read.xlsx(file.path(raw_dir, "2-6 digit_2017_Codes.xlsx"), sheet = "tbl_2017_title_description_coun")

@@ -7,10 +7,6 @@ packages <- c(
   "data.table",
   "zoo",
 
-  # Database access (WRDS / Compustat)
-  "DBI",
-  "RPostgres",
-
   # Parquet I/O
   "arrow",
 
