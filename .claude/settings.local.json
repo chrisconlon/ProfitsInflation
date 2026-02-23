@@ -13,7 +13,8 @@
       "Bash(uv:*)",
       "Bash(git status:*)",
       "Bash(git check-ignore:*)",
-      "WebFetch(domain:apps.bea.gov)"
+      "WebFetch(domain:apps.bea.gov)",
+      "Bash(git tag:*)"
     ]
   }
 }
